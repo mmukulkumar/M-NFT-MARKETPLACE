@@ -33,20 +33,36 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-
-  networks: {
-    // Useful for testing. The `development` name is special - truffle uses it by default
+ // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
-    // Another network with more advanced options...
+  networks: {
+   
+     development: {
+     host: "127.0.0.1",     // Localhost (default: none)
+     port: 7545,            // Standard Ethereum port (default: none)
+     network_id: "*",       // Any network (default: none)
+   },
+
+   contract_directory: './src/contracts',
+   contract_build_directory: './src/abis',
+  },
+
+compilers: {
+    solc: {
+      version: "^0.8.11",    // Fetch exact version from solc-bin (default: truffle's version)
+      optimizer: {
+      enabled: true,
+      runs: 200
+      },
+      //  evmVersion: "byzantium"
+      // }
+    }
+  },
+    // ////    Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
     // network_id: 1342,       // Custom network
@@ -71,27 +87,15 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
-  },
+ /// },
 
   // Set default mocha options here, use special reporters etc.
-  mocha: {
+ // mocha: {
     // timeout: 100000
-  },
-
-  // Configure your compilers
-  compilers: {
-    solc: {
-      version: "0.8.11",    // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
-    }
-  },
+ // },
+// Configure your compilers
+  
+  
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:
   // false to enabled: true. The default storage location can also be
@@ -113,4 +117,4 @@ module.exports = {
     //   }
     // }
   // }
-};
+// }
