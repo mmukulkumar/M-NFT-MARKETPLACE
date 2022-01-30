@@ -1,13 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract MukToonz {
+import './ERC721Connector.sol';
 
-    string public name;
-    string public symbol;
+contract MukToonz is ERC721Connector {
 
-    constructor(){
-        name = 'MukToonz';
-        symbol  = 'MukTz';
-    }
+  constructor() ERC721Connector('MukToonz','MukTz')
+  {}
 }
